@@ -13,6 +13,9 @@ async function bootstrap() {
     }),
   );
 
+  // Runs onModuleDestroy hooks (e.g. Prisma $disconnect) on SIGTERM/SIGINT
+  app.enableShutdownHooks();
+
   await app.listen(process.env.PORT ?? 3000);
 }
 await bootstrap();
