@@ -14,6 +14,7 @@ async function bootstrap() {
     const port = configService.getOrThrow<number>('app.port');
     const nodeEnv = configService.getOrThrow<string>('app.nodeEnv');
 
+    app.enableCors();
     app.useGlobalPipes(
       new ValidationPipe({
         whitelist: true, // Strips away any properties that do not have decorators in the DTO
