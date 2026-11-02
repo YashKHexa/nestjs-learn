@@ -49,4 +49,10 @@ export class TaskService {
       where: { id },
     });
   }
+
+  async clearCompleted() {
+    return await this.prisma.task.deleteMany({
+      where: { isCompleted: true },
+    });
+  }
 }

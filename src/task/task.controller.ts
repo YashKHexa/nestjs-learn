@@ -39,6 +39,11 @@ export class TaskController {
     return this.taskService.update(id, updateTaskDto);
   }
 
+  @Delete('completed')
+  clearCompleted() {
+    return this.taskService.clearCompleted();
+  }
+
   @Delete(':id')
   delete(@Param('id', ParseUUIDPipe) id: string) {
     return this.taskService.delete(id);
